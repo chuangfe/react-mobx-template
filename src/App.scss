@@ -1,0 +1,31 @@
+.app-container {
+  margin: 20px auto 0px;
+  width: 60%;
+
+  .title {
+    padding-bottom: 10px;
+  }
+
+  .create-container {
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+
+    input {
+      margin-right: 8px;
+    }
+  }
+
+  .filter-container {
+    padding-top: 20px;
+
+    .all-button {
+      margin-right: 10px;
+    }
+
+    .all-button.active,
+    .completed-button.active {
+      background-color: #eee;
+    }
+  }
+}
