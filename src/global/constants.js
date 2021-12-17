@@ -164,66 +164,66 @@ export const questionsClassY = [
 
 export const personalityTraits = [
   {
-    fractionMinX: 0,
-    fractionMaxX: 1,
-    fractionMinY: 2,
-    fractionMaxY: 3,
+    fractionMinClassX: 0,
+    fractionMaxClassX: 1,
+    fractionMinClassY: 2,
+    fractionMaxClassY: 3,
     answer: '大山大海的子民'
   },
 
   {
-    fractionMinX: 0,
-    fractionMaxX: 1,
-    fractionMinY: 0,
-    fractionMaxY: 1,
+    fractionMinClassX: 0,
+    fractionMaxClassX: 1,
+    fractionMinClassY: 0,
+    fractionMaxClassY: 1,
     answer: '有故事的溫柔職人'
   },
 
   {
-    fractionMinX: 2,
-    fractionMaxX: 3,
-    fractionMinY: 2,
-    fractionMaxY: 3,
+    fractionMinClassX: 2,
+    fractionMaxClassX: 3,
+    fractionMinClassY: 2,
+    fractionMaxClassY: 3,
     answer: '天真無邪的自由小孩'
   },
 
   {
-    fractionMinX: 2,
-    fractionMaxX: 3,
-    fractionMinY: 0,
-    fractionMaxY: 1,
+    fractionMinClassX: 2,
+    fractionMaxClassX: 3,
+    fractionMinClassY: 0,
+    fractionMaxClassY: 1,
     answer: '奢華古典的皇室成員'
   },
 
   {
-    fractionMinX: 4,
-    fractionMaxX: 5,
-    fractionMinY: 2,
-    fractionMaxY: 3,
+    fractionMinClassX: 4,
+    fractionMaxClassX: 5,
+    fractionMinClassY: 2,
+    fractionMaxClassY: 3,
     answer: '散發魅力的鬼靈精'
   },
 
   {
-    fractionMinX: 4,
-    fractionMaxX: 5,
-    fractionMinY: 0,
-    fractionMaxY: 1,
+    fractionMinClassX: 4,
+    fractionMaxClassX: 5,
+    fractionMinClassY: 0,
+    fractionMaxClassY: 1,
     answer: '山林裡的個性智者'
   },
 
   {
-    fractionMinX: 6,
-    fractionMaxX: 7,
-    fractionMinY: 2,
-    fractionMaxY: 3,
+    fractionMinClassX: 6,
+    fractionMaxClassX: 7,
+    fractionMinClassY: 2,
+    fractionMaxClassY: 3,
     answer: '擁有銀鈴笑聲的小仙子'
   },
 
   {
-    fractionMinX: 6,
-    fractionMaxX: 7,
-    fractionMinY: 0,
-    fractionMaxY: 1,
+    fractionMinClassX: 6,
+    fractionMaxClassX: 7,
+    fractionMinClassY: 0,
+    fractionMaxClassY: 1,
     answer: '甜美如蜜的小不點'
   }
 ];

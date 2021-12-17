@@ -1,24 +1,12 @@
 /* eslint-disable */
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-
-import {
-  makeObservable,
-  makeAutoObservable,
-  observable,
-  computed,
-  action,
-  autorun,
-  reaction,
-  runInAction,
-  when
-} from 'mobx';
 import { observer } from 'mobx-react';
 import clsx from 'clsx';
 
 import './App.scss';
 
-import AppVm from './viewModels/AppVm';
+import AppVM from './viewModels/AppVM';
 import QuestionsView from './components/QuestionsView';
 
 function Home() {
@@ -37,9 +25,9 @@ function About() {
   );
 }
 
-// @observer
+@observer
 class App extends React.Component {
-  // vm = new AppVm();
+  vm = new AppVM();
 
   render() {
     const { vm } = this;

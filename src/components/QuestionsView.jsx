@@ -45,6 +45,8 @@ class QuestionsView extends React.Component {
           {vm.questions.length && `問題: ${vm.findQuestionData.question}`}
         </div>
         <hr />
+        <div>{vm.calcResult && `人格結果: ${vm.calcResult}`}</div>
+        <hr />
         <p>{`Index: ${vm.index}`}</p>
         <p>{`Answers length: ${vm.answers.length}`}</p>
         <hr />

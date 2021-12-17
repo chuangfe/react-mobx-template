@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {
   makeObservable,
   makeAutoObservable,
@@ -9,6 +10,7 @@ import {
   runInAction,
   when
 } from 'mobx';
+import { Component } from 'react/cjs/react.production.min';
 
 import {
   questionsClassX,
@@ -24,9 +26,11 @@ class QuestionsVM {
   // 當前題數
   @observable index = 0;
   // 題目的陣列.
-  @observable questions = [];
+  @observable questions = [1];
   // 答案的陣列.
   @observable answers = [];
+  // 人格判斷.
+  @observable result = '';
 
   constructor() {
     makeObservable(this);
@@ -36,6 +40,40 @@ class QuestionsVM {
   @computed
   get findQuestionData() {
     return this.questions[this.index];
+  }
+
+  @computed
+  get calcResult() {
+    if (this.answers.length < this.questions.length) return '';
+
+    // 兩種題目的結果.
+    const answersClassX = this.answers.filter((item) => item.class === 'x');
+    const answersClassY = this.answers.filter((item) => item.class === 'y');
+
+    // 兩種題目的分數.
+    const fractionClassX = answersClassX.reduce((sum, item) => {
+      const calc = sum + item.fraction;
+      return calc;
+    }, 0);
+    const fractionClassY = answersClassY.reduce((sum, item) => {
+      const calc = sum + item.fraction;
+      return calc;
+    }, 0);
+
+    const findPersonality = personalityTraits.filter((item) => {
+      const flagX =
+        fractionClassX >= item.fractionMinClassX &&
+        fractionClassX <= item.fractionMaxClassX;
+      const flagY =
+        fractionClassY >= item.fractionMinClassY &&
+        fractionClassY <= item.fractionMaxClassY;
+
+      return flagX && flagY;
+    });
+
+    console.log(findPersonality);
+
+    return findPersonality[0].answer;
   }
 
   // 開始做題.
