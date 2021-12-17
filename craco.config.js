@@ -30,7 +30,9 @@ module.exports = {
       ],
       '@babel/plugin-transform-runtime'
     ],
-    loaderOptions: (babelLoaderOptions, { env, paths }) => { return babelLoaderOptions; }
+    loaderOptions: (babelLoaderOptions, { env, paths }) => {
+      return babelLoaderOptions;
+    }
   },
   webpack: {
     alias: {},

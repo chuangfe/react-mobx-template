@@ -19,6 +19,7 @@ import clsx from 'clsx';
 import './App.scss';
 
 import AppVm from './viewModels/AppVm';
+import QuestionsView from './components/QuestionsView';
 
 function Home() {
   return (
@@ -45,22 +46,19 @@ class App extends React.Component {
 
     return (
       <Router>
-        <h1>Welcome to React Router!</h1>
         <nav>
-          <hr />
-
-          <Link to="/">Home</Link>
-
-          <hr />
-
-          <Link to="/about">Users</Link>
-
-          <hr />
+          <Link to="/">Home</Link>&nbsp;&nbsp;
+          <Link to="/about">About</Link>&nbsp;&nbsp;
+          <Link to="/questions">Questions</Link>&nbsp;&nbsp;
         </nav>
-
+        <hr />
         <Switch>
           <Route path="/about">
             <About />
+          </Route>
+
+          <Route path="/questions">
+            <QuestionsView />
           </Route>
 
           <Route path="/">
