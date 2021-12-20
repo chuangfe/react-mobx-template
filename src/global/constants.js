@@ -1,3 +1,34 @@
+// 過場影片
+import videoQ01A01 from '../assets/videos/Q01_耀眼南島陽光海岸，白沙上海風輕.mp4';
+import videoQ01A02 from '../assets/videos/Q01_薄霧繚繞中海拔森林，青苔泥土氣息.mp4';
+
+import videoQ02A01 from '../assets/videos/Q02_焦糖、可可、鳳梨果乾、煙燻甘草香氣.mp4';
+import videoQ02A02 from '../assets/videos/Q02_百香果、芬多精、淡淡蜜桃、白色花香氣.mp4';
+
+import videoQ03A01 from '../assets/videos/Q03_濃郁流心熔岩的布朗尼.mp4';
+import videoQ03A02 from '../assets/videos/Q03_橙花糖霜的水果冰淇淋.mp4';
+
+import videoQ04A01 from '../assets/videos/Q04_渾厚嗓音，大山子民對山林表達的敬畏.mp4';
+import videoQ04A02 from '../assets/videos/Q04_清澈提琴聲，輕巧的旋律蔓延整座天際.mp4';
+
+import videoQ05A01 from '../assets/videos/Q05_倒在陶土材質的淺杯裡，冒著裊裊熱氣.mp4';
+import videoQ05A02 from '../assets/videos/Q05_澆淋在裝滿冰塊的玻璃杯，冰塊清脆碎裂.mp4';
+
+import videoQ06A01 from '../assets/videos/Q06_渾厚濃郁、奶油般綿密質地.mp4';
+import videoQ06A02 from '../assets/videos/Q06_輕盈水感、果汁般清爽質地.mp4';
+
+import videoQ07A01 from '../assets/videos/Q07_秋葉緩緩落下的紅褐色調.mp4';
+import videoQ07A02 from '../assets/videos/Q07_春風吹拂搖擺的青綠色調.mp4';
+
+import videoQ08A01 from '../assets/videos/Q08_安穩吃草圓滾滾的野兔.mp4';
+import videoQ08A02 from '../assets/videos/Q08_雀躍跳動小小的綠繡眼.mp4';
+
+import videoQ09A01 from '../assets/videos/Q09_願你每個工作日裡，都能輕快忙裡偷閒.mp4';
+import videoQ09A02 from '../assets/videos/Q09_願你每個假日時光，都有開心豐富體驗.mp4';
+
+import videoQ10A01 from '../assets/videos/Q10_給你舒緩放鬆的平靜.mp4';
+import videoQ10A02 from '../assets/videos/Q10_給你精力充沛的能量.mp4';
+
 export const questionsClassX = [
   {
     id: 1,
@@ -6,11 +37,13 @@ export const questionsClassX = [
     answers: [
       {
         fraction: 0,
-        content: '耀眼南島陽光海岸，白沙上海風輕拂'
+        content: '耀眼南島陽光海岸，白沙上海風輕拂',
+        video: videoQ01A01
       },
       {
         fraction: 1,
-        content: '薄霧繚繞中海拔森林，青苔泥土氣息'
+        content: '薄霧繚繞中海拔森林，青苔泥土氣息',
+        video: videoQ01A02
       }
     ]
   },
@@ -22,11 +55,13 @@ export const questionsClassX = [
     answers: [
       {
         fraction: 0,
-        content: '焦糖、可可、鳳梨果乾、煙燻甘草香氣'
+        content: '焦糖、可可、鳳梨果乾、煙燻甘草香氣',
+        video: videoQ02A01
       },
       {
         fraction: 1,
-        content: '百香果、芬多精、淡淡蜜桃、白色花香氣'
+        content: '百香果、芬多精、淡淡蜜桃、白色花香氣',
+        video: videoQ02A02
       }
     ]
   },
@@ -38,11 +73,13 @@ export const questionsClassX = [
     answers: [
       {
         fraction: 0,
-        content: '濃郁流心熔岩的布朗尼'
+        content: '濃郁流心熔岩的布朗尼',
+        video: videoQ03A01
       },
       {
         fraction: 1,
-        content: '橙花糖霜的水果冰淇淋'
+        content: '橙花糖霜的水果冰淇淋',
+        video: videoQ03A02
       }
     ]
   },
@@ -54,11 +91,13 @@ export const questionsClassX = [
     answers: [
       {
         fraction: 0,
-        content: '渾厚嗓音，大山子民對山林表達的敬畏'
+        content: '渾厚嗓音，大山子民對山林表達的敬畏',
+        video: videoQ04A01
       },
       {
         fraction: 1,
-        content: '清澈提琴聲，輕巧的旋律蔓延整座天際'
+        content: '清澈提琴聲，輕巧的旋律蔓延整座天際',
+        video: videoQ04A02
       }
     ]
   },
@@ -70,11 +109,13 @@ export const questionsClassX = [
     answers: [
       {
         fraction: 0,
-        content: '倒在陶土材質的淺杯裡，冒著裊裊熱氣'
+        content: '倒在陶土材質的淺杯裡，冒著裊裊熱氣',
+        video: videoQ05A01
       },
       {
         fraction: 1,
-        content: '澆淋在裝滿冰塊的玻璃杯，冰塊清脆碎裂'
+        content: '澆淋在裝滿冰塊的玻璃杯，冰塊清脆碎裂',
+        video: videoQ05A02
       }
     ]
   },
@@ -86,11 +127,13 @@ export const questionsClassX = [
     answers: [
       {
         fraction: 0,
-        content: '渾厚濃郁、奶油般綿密質地'
+        content: '渾厚濃郁、奶油般綿密質地',
+        video: videoQ06A01
       },
       {
         fraction: 1,
-        content: '輕盈水感、果汁般清爽質地'
+        content: '輕盈水感、果汁般清爽質地',
+        video: videoQ06A02
       }
     ]
   },
@@ -102,11 +145,13 @@ export const questionsClassX = [
     answers: [
       {
         fraction: 0,
-        content: '秋葉緩緩落下的紅褐色調'
+        content: '秋葉緩緩落下的紅褐色調',
+        video: videoQ07A01
       },
       {
         fraction: 1,
-        content: '春風吹拂搖擺的青綠色調'
+        content: '春風吹拂搖擺的青綠色調',
+        video: videoQ07A02
       }
     ]
   }
@@ -120,11 +165,13 @@ export const questionsClassY = [
     answers: [
       {
         fraction: 0,
-        content: '安穩吃草圓滾滾的野兔'
+        content: '安穩吃草圓滾滾的野兔',
+        video: videoQ08A01
       },
       {
         fraction: 1,
-        content: '雀躍跳動小小的綠繡眼'
+        content: '雀躍跳動小小的綠繡眼',
+        video: videoQ08A02
       }
     ]
   },
@@ -136,11 +183,13 @@ export const questionsClassY = [
     answers: [
       {
         fraction: 0,
-        content: '願你每個工作日裡，都能輕快忙裡偷閒'
+        content: '願你每個工作日裡，都能輕快忙裡偷閒',
+        video: videoQ09A01
       },
       {
         fraction: 1,
-        content: '願你每個假日時光，都有開心豐富體驗'
+        content: '願你每個假日時光，都有開心豐富體驗',
+        video: videoQ09A02
       }
     ]
   },
@@ -152,11 +201,13 @@ export const questionsClassY = [
     answers: [
       {
         fraction: 0,
-        content: '給你舒緩放鬆的平靜'
+        content: '給你舒緩放鬆的平靜',
+        video: videoQ10A01
       },
       {
         fraction: 1,
-        content: '給你精力充沛的能量'
+        content: '給你精力充沛的能量',
+        video: videoQ10A02
       }
     ]
   }
@@ -227,3 +278,8 @@ export const personalityTraits = [
     answer: '甜美如蜜的小不點'
   }
 ];
+
+export const pages = {
+  Questions: '/questions',
+  Traits: '/traits'
+};

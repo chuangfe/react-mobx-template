@@ -10,27 +10,20 @@ import {
   runInAction,
   when
 } from 'mobx';
-import { Component } from 'react/cjs/react.production.min';
 
-import {
-  questionsClassX,
-  questionsClassY,
-  personalityTraits
-} from '../global/constants';
+import { questionsClassX, questionsClassY, pages } from '../global/constants';
 
 class QuestionsVM {
-  // 作答按鈕鎖定.
-  @observable disabled = false;
-  // 當前是否在過場動畫
-  @observable transition = false;
+  // 按鈕鎖定.
+  @observable isDisabled = false;
+  // 當前是否在過場影片
+  @observable isPlay = false;
   // 當前題數
   @observable index = 0;
   // 題目的陣列.
-  @observable questions = [1];
+  @observable questions = [];
   // 答案的陣列.
   @observable answers = [];
-  // 人格判斷.
-  @observable result = '';
 
   constructor() {
     makeObservable(this);
@@ -42,8 +35,17 @@ class QuestionsVM {
     return this.questions[this.index];
   }
 
+  // 過場影片
   @computed
-  get calcResult() {
+  get answerVideo() {
+    // 當前不是在過場中.
+    if (!this.isPlay) return;
+    return this.answers[this.index].video;
+  }
+
+  // 計算答案.
+  @computed
+  get calcFraction() {
     if (this.answers.length < this.questions.length) return '';
 
     // 兩種題目的結果.
@@ -52,51 +54,58 @@ class QuestionsVM {
 
     // 兩種題目的分數.
     const fractionClassX = answersClassX.reduce((sum, item) => {
-      const calc = sum + item.fraction;
-      return calc;
+      return sum + item.fraction;
     }, 0);
     const fractionClassY = answersClassY.reduce((sum, item) => {
-      const calc = sum + item.fraction;
-      return calc;
+      return sum + item.fraction;
     }, 0);
 
-    const findPersonality = personalityTraits.filter((item) => {
-      const flagX =
-        fractionClassX >= item.fractionMinClassX &&
-        fractionClassX <= item.fractionMaxClassX;
-      const flagY =
-        fractionClassY >= item.fractionMinClassY &&
-        fractionClassY <= item.fractionMaxClassY;
-
-      return flagX && flagY;
-    });
-
-    console.log(findPersonality);
-
-    return findPersonality[0].answer;
+    return { fractionClassX, fractionClassY };
   }
 
-  // 開始做題.
+  // 開啟按鈕.
   @action
-  start = () => {
-    this.disabled = false;
+  clearDisabled = () => {
+    this.isDisabled = false;
   };
 
-  // 做題結束
-  end = () => {
-    this.disabled = true;
+  // 鎖定按鈕.
+  @action
+  setDisabled = () => {
+    this.isDisabled = true;
+  };
+
+  // 播放過場影片
+  @action
+  videoPlay = () => {
+    // 正在過場中.
+    this.isPlay = true;
+    // 鎖定按鈕.
+    this.setDisabled();
+  };
+
+  // 過場影片播放結束.
+  @action
+  videoEnd = () => {
+    // 過場結束.
+    this.isPlay = false;
+    // 開啟按鈕.
+    this.clearDisabled();
+    // 至下一題.
+    this.nextQuestion();
   };
 
   // 選擇答案
   @action
   selectAnswer = (num) => {
     // 鎖定按鈕.
-    if (this.disabled) return;
+    if (this.isDisabled) return;
 
     const { findQuestionData } = this;
     const data = {
       class: findQuestionData.class,
-      fraction: findQuestionData.answers[num].fraction
+      fraction: findQuestionData.answers[num].fraction,
+      video: findQuestionData.answers[num].video
     };
 
     // 紀錄答案, 因為有返回上一題, 故需要判斷當前的問題是否已經回答過.
@@ -105,21 +114,24 @@ class QuestionsVM {
     } else {
       this.answers.push(data);
     }
-
-    // 前往下個題目.
-    this.nextQuestion();
   };
 
-  // 前往下個題目.
+  // 前往下個題目, 在過場影片播放結束後執行.
   @action
   nextQuestion = () => {
     const calc = this.index + 1;
+    const { fractionClassX, fractionClassY } = this.calcFraction;
 
+    // 下一題.
     if (calc < this.questions.length) {
       this.index = calc;
-    } else {
-      // 做題結束
-      this.end();
+    }
+    // 選擇題結束.
+    else {
+      // 鎖定按鈕.
+      this.setDisabled();
+      // 跳轉至答案頁面.
+      this.history.push(`${pages.Traits}/${fractionClassX}/${fractionClassY}`);
     }
   };
 
@@ -131,13 +143,17 @@ class QuestionsVM {
     // 只要上一頁不是第一題都可以返回.
     if (calc >= 0) {
       this.index = calc;
-      this.start();
+      this.clearDisabled();
     }
   };
 
   // 題目順序打亂
   @action
-  init = () => {
+  init = ({ history }) => {
+    // 保存 history 換頁函式.
+    this.history = history;
+
+    // 複製題目.
     const questionsX = questionsClassX.slice(0);
     const questionsY = questionsClassY.slice(0);
 
@@ -153,7 +169,8 @@ class QuestionsVM {
     });
 
     // 把題目組合.
-    this.questions = [...questionsX, ...questionsY];
+    // this.questions = [...questionsX, ...questionsY];
+    this.questions = [...questionsClassX, ...questionsClassY];
   };
 }
 
